@@ -34,7 +34,7 @@ find_packages_uid() {
     user=$(echo ${user_package} | awk -F ':' '{print $1}')
     package=$(echo ${user_package} | awk -F ':' '{print $2}')
     uid="$(awk '{if($1=="'${package}'"){print $2}}' /data/system/packages.list)"
-    if [[ -n "${uid}" ]]; then
+    if [[ -n "${uid}" ]] ; then
       uid_list[${#uid_list[@]}]=$(expr ${user} \* "100000" + ${uid})
     fi
   done
